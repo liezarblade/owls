@@ -1,0 +1,306 @@
+/* =======================
+   NETFLIX STYLE THEME
+========================== */
+
+:root {
+    --bg: #000000;
+    --card-bg: #111;
+    --text: #ffffff;
+    --accent: #e50914;
+    --accent-hover: #72050a;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===========================
+   RESPONSIVE HEADER FIX
+=========================== */
+
+header {
+    background: #000;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #111;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-wrap: wrap;     /* allows wrapping */
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+/* Controls - desktop view */
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Tablet View */
+@media (max-width: 900px) and (min-width: 601px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .controls {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .controls {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .controls select,
+    .controls button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/* NEW MOBILE-FRIENDLY HEADER */
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+/* ON SMALL SCREENS → STACK CONTROLS BELOW LOGO */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .controls {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    select, button {
+        flex: 1;
+        font-size: 14px;
+    }
+}
+
+select, button {
+    background: #111;
+    color: var(--text);
+    border: 1px solid #333;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button.toggle-btn {
+    background: var(--accent);
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+button.toggle-btn:hover {
+    background: var(--accent-hover);
+}
+
+.search-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.search-container input {
+    width: 90%;
+    max-width: 600px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #111;
+    color: white;
+    font-size: 16px;
+}
+
+/* GALLERY GRID */
+.gallery {
+    padding: 20px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: #000;
+}
+
+.card-title {
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* PAGINATION */
+#pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#pagination button {
+    background: var(--accent);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+#pagination button:hover {
+    background: var(--accent-hover);
+}
+
+/* TOP BUTTON */
+.scroll-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 12px 15px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+}
+
+.scroll-to-top:hover {
+    background: var(--accent-hover);
+}
+
+/* LIST OVERLAY */
+#listOverlay {
+    background: rgba(0,0,0,0.97) !important;
+}
+
+/* DOSE POPUP */
+#dosePopup h2, h3 {
+    margin: 10px 0;
+}
+
+#doseQuality button,
+#doseClients button {
+    background: var(--accent);
+    border: none;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#doseQuality button:hover,
+#doseClients button:hover {
+    background: var(--accent-hover);
+}
+
+#doseContent {
+    border: 2px solid #333;
+}
+
+/* ============================================
+   DARK THEME SUPPORT (GLOBAL)
+============================================ */
+body.dark {
+    background: #121212;
+    color: #eaeaea;
+}
+
+body.dark .card {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark header {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+body.dark .toggle-btn,
+body.dark select {
+    background: #2c2c2c;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark .search-container input {
+    background: #222;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark #dosePopup {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+body.dark #doseBox {
+    background: #1e1e1e;
+    color: #ddd;
+}
+
+body.dark .qualityBlock {
+    background: #222;
+    border-color: #444;
+}
+
+body.dark .clientButtons a {
+    background: #333;
+    color: #fff;
+    border-color: #555;
+}
