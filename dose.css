@@ -9,6 +9,9 @@
     justify-content: center;
     z-index: 99999;
     padding: 20px;
+
+    /* ✅ Allows scrolling when content is tall */
+    overflow-y: auto;
 }
 
 #doseBox {
@@ -20,11 +23,18 @@
     display: flex;
     gap: 15px;
     border-radius: 12px;
+
+    /* ✅ Prevents content from overflowing on small screens */
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 #doseLeft img {
     width: 220px;
     border-radius: 8px;
+
+    /* ✅ Prevents image overflow on small screens */
+    height: auto;
 }
 
 #doseRight {
@@ -80,6 +90,18 @@
 }
 
 @media (max-width: 720px) {
-    #doseBox { flex-direction: column; }
-    #doseLeft img { width: 100%; }
+    #doseBox { 
+        flex-direction: column; 
+        
+        /* ✅ Ensures popup scrolls correctly on phones */
+        max-height: 90vh; 
+        overflow-y: auto;
+    }
+    
+    #doseLeft img { 
+        width: 100%; 
+        
+        /* Ensure image does not lock or stretch */
+        height: auto;
+    }
 }
